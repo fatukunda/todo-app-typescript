@@ -1,0 +1,25 @@
+{
+  "name": "todo-app-typescript",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Frank Atukunda",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc",
+    "start": "concurrently \"tsc -w\" \"nodemon dist/js/app.js\""
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^16.9.6",
+    "concurrently": "^6.2.1",
+    "nodemon": "^2.0.12",
+    "typescript": "^4.4.3"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^6.0.7"
+  }
+}
