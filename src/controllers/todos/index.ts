@@ -13,7 +13,6 @@ const getTodos = async (req: Request, res: Response): Promise<void> => {
 }
 
 // Add todo
-
 const addTodo = async (req: Request, res: Response): Promise<void> => {
     try {
         const body = req.body as Pick<ITodo, "name" | "description" | "status">
@@ -22,11 +21,22 @@ const addTodo = async (req: Request, res: Response): Promise<void> => {
             description: body.description,
             status: body.status
         });
-    const newTodo = await todo.save();
+    const newTodo: ITodo = await todo.save();
     res.status(201).json({ message: 'Todo added', todo: newTodo });
     } catch (error) {
         throw error;
     }
 }
 
-export { getTodos, addTodo }
+//Update Todo
+const updateTodo = async (req: Request, res: Response): Promise<void> => {
+    try {
+        const { params: { id }, body } = req;
+        const updatedTodo: ITodo | null = await Todo.findByIdAndUpdate({ _id: id });
+        res.status(200).json({ message: 'Todo updated', todo: updatedTodo})
+    } catch (error) {
+        throw error
+    }
+}
+
+export { getTodos, addTodo, updateTodo }
