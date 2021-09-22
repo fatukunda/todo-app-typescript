@@ -1,7 +1,7 @@
 {
   "name": "todo-app-typescript",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
   "author": "Frank Atukunda",
   "license": "MIT",
   "scripts": {

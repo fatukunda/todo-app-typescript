@@ -32,7 +32,10 @@ const addTodo = async (req: Request, res: Response): Promise<void> => {
 const updateTodo = async (req: Request, res: Response): Promise<void> => {
     try {
         const { params: { id }, body } = req;
-        const updatedTodo: ITodo | null = await Todo.findByIdAndUpdate({ _id: id, body });
+        const updatedTodo: ITodo | null = await Todo.findByIdAndUpdate(
+            { _id: id },
+            body
+          );
         res.status(200).json({ message: 'Todo updated', todo: updatedTodo})
     } catch (error) {
         throw error
